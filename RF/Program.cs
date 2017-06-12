@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace RF {
     class Program {
         static void Main(string[] args) {
+            Console.WriteLine("The RF base business layer started.");            
         }
     }
 }

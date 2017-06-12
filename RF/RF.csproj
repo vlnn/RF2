@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Antenna.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceiveOnly.cs" />
+    <Compile Include="ReceiveTransmit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
