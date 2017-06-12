@@ -56,6 +56,8 @@
     <Compile Include="ReceiveTransmitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReceiveOnlyTest.cs" />
+    <Compile Include="FrequencyTest.cs" />
+    <Compile Include="LicensedTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RF\RF.csproj">
