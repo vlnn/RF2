@@ -11,7 +11,8 @@ namespace RF {
             Fixed,            
         }
 
-        public enum actions {                    
+        public enum actions {     
+            None,               
             Install,
             Remove,
             Maintain,
@@ -21,7 +22,7 @@ namespace RF {
         public string AntennaID { get; set; }
         public int InstallationType { get;  set; }
 
-        public int Action { get; set; }
+        public int Action { get; set ; }
 
         public void Install() {
             if (Action != (int) actions.Install) {
@@ -39,12 +40,12 @@ namespace RF {
             }
         }
         public void Maintain() {
-            if (Action != (int) actions.Maintain) {
+            if (Action == (int) actions.Maintain) {
+                Console.WriteLine(AntennaID + " is already in the maintenance mode.");
                 Action = (int)actions.Remove;
             } else {
-                Console.WriteLine(AntennaID + " is already in the maintenance mode.");
+                Action = (int)actions.Maintain;
             }
         }
-    }
-    
+    }    
 }

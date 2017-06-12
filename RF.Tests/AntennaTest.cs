@@ -26,5 +26,29 @@ namespace RFTest {
             actualInstallationType = antenna.InstallationType;
             Assert.AreEqual(expectedInstallationType, actualInstallationType);
         }
+        [TestMethod]
+        public void InstallTest() {
+            Antenna antenna = new Antenna();
+            antenna.Install();
+            int expectedAction = (int)Antenna.actions.Install;
+            int actualAction = (int)antenna.Action;
+            Assert.AreEqual(expectedAction, actualAction);
+        }
+        [TestMethod]
+        public void RemoveTest() {
+            Antenna antenna = new Antenna();
+            antenna.Remove();
+            int expectedAction = (int)Antenna.actions.Remove;
+            int actualAction = (int)antenna.Action;
+            Assert.AreEqual(expectedAction, actualAction);
+        }
+        [TestMethod]
+        public void MaintainTest() {
+            Antenna antenna = new Antenna();
+            antenna.Maintain();
+            int expectedAction = (int)Antenna.actions.Maintain;
+            int actualAction = (int)antenna.Action;
+            Assert.AreEqual(expectedAction, actualAction);
+        }
     }
 }
