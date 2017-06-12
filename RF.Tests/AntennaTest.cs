@@ -6,7 +6,7 @@ namespace RFTest {
     [TestClass]
     public class AntennaTest {
         [TestMethod]
-        public void ProductIDTest() {            
+        public void ProductID() {            
             Antenna antenna = new Antenna();
             antenna.ProductID = "firstid";            
             string expectedProductID = "firstid";            
@@ -14,7 +14,15 @@ namespace RFTest {
             Assert.AreEqual(expectedProductID, actualProductID);            
         }
         [TestMethod]
-        public void InstallationTypeTest() {            
+        public void InstallationID() {
+            Antenna antenna = new Antenna();
+            antenna.InstallationID = "firstid";
+            string expectedInstallationID = "firstid";
+            string actualInstallationID = antenna.InstallationID;
+            Assert.AreEqual(expectedInstallationID, actualInstallationID);
+        }
+        [TestMethod]
+        public void InstallationType() {            
             Antenna antenna = new Antenna();            
             antenna.InstallationType = (int)Antenna.installationTypes.Fixed;            
             int expectedInstallationType = (int)Antenna.installationTypes.Fixed;           
@@ -27,7 +35,7 @@ namespace RFTest {
             Assert.AreEqual(expectedInstallationType, actualInstallationType);
         }
         [TestMethod]
-        public void InstallTest() {
+        public void Install() {
             Antenna antenna = new Antenna();
             antenna.Install();
             int expectedAction = (int)Antenna.actions.Install;
@@ -35,7 +43,7 @@ namespace RFTest {
             Assert.AreEqual(expectedAction, actualAction);
         }
         [TestMethod]
-        public void RemoveTest() {
+        public void Remove() {
             Antenna antenna = new Antenna();
             antenna.Remove();
             int expectedAction = (int)Antenna.actions.Remove;
@@ -43,7 +51,7 @@ namespace RFTest {
             Assert.AreEqual(expectedAction, actualAction);
         }
         [TestMethod]
-        public void MaintainTest() {
+        public void Maintain() {
             Antenna antenna = new Antenna();
             antenna.Maintain();
             int expectedAction = (int)Antenna.actions.Maintain;

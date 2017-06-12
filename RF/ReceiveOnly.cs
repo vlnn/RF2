@@ -5,7 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RF {
-    class ReceiveOnly : Antenna {
+    public class ReceiveOnly : Antenna {
+        public string ReceiverID { get; set; }
+        public string TransmitterID { get; set; }
 
+        public ReceiveOnly() {
+            ReceiverID = "DefaultReceiver";            
+        }
     }
 }

@@ -4,48 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RF {    
+namespace RF {
     public class Antenna {
         public enum installationTypes {
             Mobile,
-            Fixed,            
+            Fixed,
         }
 
-        public enum actions {     
-            None,               
+        public enum actions {
+            None,
             Install,
             Remove,
             Maintain,
         }
 
-        public string ProductID { get;  set; }
-        public string AntennaID { get; set; }
-        public int InstallationType { get;  set; }
-
-        public int Action { get; set ; }
+        public string ProductID { get; set; }
+        public string InstallationID { get; set; }
+        public int InstallationType { get; set; }
+        public int Action { get; set; }
 
         public void Install() {
-            if (Action != (int) actions.Install) {
-                Action = (int) actions.Install;
-            } else {
-                Action = (int) actions.Maintain;
-            }
-        }
-        
-        public void Remove() {
-            if (Action != (int) actions.Remove) {
-                Action = (int) actions.Remove;
+            if (Action != (int)actions.Install) {
+                Action = (int)actions.Install;
             } else {
                 Action = (int)actions.Maintain;
             }
         }
-        public void Maintain() {
-            if (Action == (int) actions.Maintain) {
-                Console.WriteLine(AntennaID + " is already in the maintenance mode.");
+
+        public void Remove() {
+            if (Action != (int)actions.Remove) {
                 Action = (int)actions.Remove;
             } else {
                 Action = (int)actions.Maintain;
             }
         }
-    }    
+        public void Maintain() {
+            if (Action == (int)actions.Maintain) {
+                Console.WriteLine(InstallationID + " is already in the maintenance mode.");
+                Action = (int)actions.Remove;
+            } else {
+                Action = (int)actions.Maintain;
+            }
+        }
+    }
 }
