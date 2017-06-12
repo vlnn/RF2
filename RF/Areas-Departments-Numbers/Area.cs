@@ -13,10 +13,10 @@ namespace RF {
             South,
             West
         }
-        public int Region { get; private set; }
+        public string Region { get; private set; }
         
-        public void Area(Areas area) {
-            Area = Area.area;
+        private void SetArea() {
+            Region = Areas.North.ToString();
         }
     }
 }
