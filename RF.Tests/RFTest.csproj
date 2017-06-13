@@ -53,6 +53,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AntennaTest.cs" />
+    <Compile Include="DepartmentTest.cs" />
+    <Compile Include="RegionTest.cs" />
     <Compile Include="ReceiveTransmitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReceiveOnlyTest.cs" />

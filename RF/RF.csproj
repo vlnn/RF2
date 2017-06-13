@@ -47,14 +47,21 @@
     <Compile Include="Antennas-Technologies-Bands\Unlicensed.cs" />
     <Compile Include="Antennas-Technologies-Bands\Licensed.cs" />
     <Compile Include="Antennas-Technologies-Bands\Frequency.cs" />
-    <Compile Include="Areas-Departments-Numbers\Area.cs" />
+    <Compile Include="Areas-Departments-Numbers\AreaOfRegion.cs" />
+    <Compile Include="Areas-Departments-Numbers\Department.cs" />
+    <Compile Include="Areas-Departments-Numbers\Region.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Partner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Antennas-Technologies-Bands\ReceiveOnly.cs" />
     <Compile Include="Antennas-Technologies-Bands\ReceiveTransmit.cs" />
+    <Compile Include="Warehouse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
