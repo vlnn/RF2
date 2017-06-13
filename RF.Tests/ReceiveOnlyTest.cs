@@ -5,6 +5,7 @@ using RF;
 namespace RFTest {
     [TestClass]
     public class ReceiveOnlyTest {
+
         [TestMethod]
         public void ReceiveOnly() {
             var antenna = new ReceiveOnly();
