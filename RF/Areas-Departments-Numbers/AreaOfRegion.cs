@@ -13,6 +13,7 @@ namespace RF {
             South,
             West
         }
+
         public override string Area() {
             return Areas.North.ToString();
         }

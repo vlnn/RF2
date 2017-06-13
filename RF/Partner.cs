@@ -10,6 +10,7 @@ namespace RF {
         private int partnerID { get; set; }
         private string name { get; set; }
         private string address { get; set; }
+
         public Partner(string _name, string _address) {
             currentid++;
             partnerID = currentid;

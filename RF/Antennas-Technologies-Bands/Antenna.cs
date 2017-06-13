@@ -38,6 +38,7 @@ namespace RF {
                 Action = (int)actions.Maintain;
             }
         }
+
         public void Maintain() {
             if (Action == (int)actions.Maintain) {
                 Console.WriteLine(InstallationID + " is already in the maintenance mode.");

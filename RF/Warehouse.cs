@@ -8,6 +8,7 @@ using RF;
 namespace RF {
     public class Warehouse {
         public static List<string> Hardware = new List<string>();        
+
         public Warehouse() {            
         }        
         public void Add(Antenna antenna){
