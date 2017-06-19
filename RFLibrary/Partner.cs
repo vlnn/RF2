@@ -11,11 +11,11 @@ namespace RF {
         private string name { get; set; }
         private string address { get; set; }
 
-        private Partner(string _name, string _address) {
+        private Partner(string name, string address) {
             currentid++;
             partnerID = currentid;
-            name = _name;
-            address = _address;
+            this.name = name;
+            this.address = address;
         }
     }
 }

@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace RF {
     public class Department : Region {
+
+        enum Cities {
+            Kyiv,
+            Kharkiv,
+            Dnipro,
+            Lviv,
+            Odesa
+        }
+
         public override string Area() {
             return("Main Dept");
         }
