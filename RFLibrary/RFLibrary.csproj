@@ -49,7 +49,7 @@
     <Compile Include="Areas-Departments-Numbers\AreaOfRegion.cs" />
     <Compile Include="Areas-Departments-Numbers\Department.cs" />
     <Compile Include="Areas-Departments-Numbers\Region.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Filler.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Partner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
