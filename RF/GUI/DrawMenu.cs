@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RFLibrary;
+using RF;
 
 namespace RF.GUI {
     class DrawMenu {
@@ -20,8 +22,9 @@ namespace RF.GUI {
         public string Action(char menu) {
             switch (menu) {
                 case 'C': {
-                        var created = new Antenna();
-                        return "Create";
+                        var product = new Filler();
+                        product.WarezFiller();
+                        return "The new product added to the Warehouse.";
                     }
                 case 'R': {
                         return "Read";

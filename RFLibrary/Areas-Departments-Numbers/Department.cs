@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RF {
     public class Department : Region {
 
-        enum Cities {
+        public enum Cities {
             Kyiv,
             Kharkiv,
             Dnipro,
