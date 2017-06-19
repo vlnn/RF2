@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RF", "RF\RF.csproj", "{BB98
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTest", "RF.Tests\RFTest.csproj", "{8C8932BF-25F6-4A02-B151-1C088E881757}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFLibrary", "RFLibrary\RFLibrary.csproj", "{DF8F6CC2-A0E6-45E2-B329-6791A90D8DA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8C8932BF-25F6-4A02-B151-1C088E881757}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C8932BF-25F6-4A02-B151-1C088E881757}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C8932BF-25F6-4A02-B151-1C088E881757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF8F6CC2-A0E6-45E2-B329-6791A90D8DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF8F6CC2-A0E6-45E2-B329-6791A90D8DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF8F6CC2-A0E6-45E2-B329-6791A90D8DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF8F6CC2-A0E6-45E2-B329-6791A90D8DA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

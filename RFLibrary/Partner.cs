@@ -11,7 +11,7 @@ namespace RF {
         private string name { get; set; }
         private string address { get; set; }
 
-        public Partner(string _name, string _address) {
+        private Partner(string _name, string _address) {
             currentid++;
             partnerID = currentid;
             name = _name;

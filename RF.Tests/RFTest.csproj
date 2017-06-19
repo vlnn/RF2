@@ -62,6 +62,10 @@
     <Compile Include="LicensedTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RFLibrary\RFLibrary.csproj">
+      <Project>{df8f6cc2-a0e6-45e2-b329-6791a90d8da9}</Project>
+      <Name>RFLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RF\RF.csproj">
       <Project>{BB98D0C3-B82B-4C3B-BE11-0B87821B47DA}</Project>
       <Name>RF</Name>
