@@ -12,8 +12,7 @@ namespace RF {
         static void Main() {
             string output = "\0";
             char keyPressed = '\0';
-            Console.WriteLine("The RF base business layer started.");
-            var Warez = new Warehouse();
+            Console.WriteLine("The RF base business layer started.");            
             do {
                 Console.Clear();
                 if (output != "\0") {
@@ -22,8 +21,8 @@ namespace RF {
                     Console.WriteLine(output);
                 }
                 var drawMenu = new Menu();
-                Console.WriteLine("Information: There are " + Warez.Count() + " antennas in the storage.\n");
-                Console.WriteLine(Warez.ReadAll());
+                Console.WriteLine("Information: There are " + Warehouse.Count() + " antennas in the storage.\n");
+                Console.WriteLine(Warehouse.ReadAll());
                 keyPressed = drawMenu.Select();
                 output = drawMenu.Action(keyPressed);
             } while (true);            

@@ -13,17 +13,15 @@ namespace RFLibrary {
         public const int codelen = 3;
         public Random random = new Random();
     
-        public Warehouse WarezFiller() {
+        public void WarezFiller() {
             Array cities = Enum.GetValues(typeof(Department.Cities));
             string city = cities.GetValue(random.Next(cities.Length)).ToString();
             string citycode = GenerateCityCode(city);
             string numcode = GenerateNumCode();
             var antenna = new Antenna();
             antenna.ProductID = (citycode + numcode).ToUpper();
-            antenna.InstallationID = city;
-            var warez = new Warehouse();            
-            warez.Add(antenna);
-            return warez;
+            antenna.InstallationID = city;            
+            Warehouse.Add(antenna);            
         }
 
         public string GenerateCityCode(string city) {

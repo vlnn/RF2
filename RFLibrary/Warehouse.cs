@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 using RF;
 
 namespace RF {
-    public class Warehouse {
-        public static List<object> Hardware = new List<object>();
-        public Warehouse() {
-        }
+    public static class Warehouse {
+        public static List<object> Hardware = new List<object>();        
 
-        public void Add(Antenna antenna) {
+        public static void Add(Antenna antenna) {
             Hardware.Add((object)antenna);
         }
 
-        public bool RemoveLast() {
+        public static bool RemoveLast() {
             if (Hardware.Any()) {
                 Hardware.Remove(Hardware.Last());
             } else {
@@ -25,11 +23,11 @@ namespace RF {
             return (Hardware.Any());
         }
 
-        public int Count() {
+        public static int Count() {
             return Hardware.Count;
         }
 
-        public string ReadAll() {
+        public static string ReadAll() {
             string ids = "";
             foreach (Antenna antenna in Hardware) {
                 ids += (antenna.InstallationID + " : " + antenna.ProductID + "\n");
@@ -37,7 +35,7 @@ namespace RF {
             return ids;
         }
 
-        public bool UpdateLast() {
+        public static bool UpdateLast() {
             if (Hardware.Any()) {
                 Antenna antenna = (Antenna)Hardware.Last();
                 UpdateProduct((Antenna) antenna);
@@ -56,7 +54,7 @@ namespace RF {
             }
         }
 
-        private void UpdateProduct(Antenna antenna) {
+        private static void UpdateProduct(Antenna antenna) {
             Console.WriteLine("Update Installation ID (Empty string to leave as is):");
             string line = Console.ReadLine();
 
@@ -71,7 +69,7 @@ namespace RF {
             };
         }
 
-        public bool ValidateAll() {
+        public static bool ValidateAll() {
             List<string> products = new List<string>();
             foreach (Antenna antenna in Hardware) {
                 products.Add(antenna.ProductID);

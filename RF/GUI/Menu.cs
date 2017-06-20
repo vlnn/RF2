@@ -26,25 +26,22 @@ namespace RF.GUI {
                         product.WarezFiller();
                         return "The new product added to the warehouse.";
                     }
-                case 'R': {
-                        var warez = new Warehouse();
-                        if (warez.ValidateAll()) {
-                            return (warez.Count() + " packages were checked.");
+                case 'R': {                        
+                        if (Warehouse.ValidateAll()) {
+                            return (Warehouse.Count() + " packages were checked.");
                         } else {
                             return ("Error! Warehouse is not in order!");
                         }
                     }
-                case 'U': {
-                        var warez = new Warehouse();
-                        if (warez.UpdateLast()) {
+                case 'U': {                        
+                        if (Warehouse.UpdateLast()) {
                             return "Update successfull.";
                         } else {
                             return "Update unsuccessfull.";
                         };
                     }
-                case 'D': {
-                        var warez = new Warehouse();
-                        if (warez.RemoveLast()) {
+                case 'D': {                        
+                        if (Warehouse.RemoveLast()) {
                             return "One package has been removed from the warehouse.";
                         } else {
                             return "Deletion is not complete.";

@@ -9,12 +9,11 @@ namespace RFTest {
 
         [TestMethod]
         public void Count() {
-            Filler test = new Filler();
-            Warehouse wares = new Warehouse();
+            Filler test = new Filler();            
             test.WarezFiller();
             test.WarezFiller();
             test.WarezFiller();            
-            Assert.AreEqual(wares.Count(), 3);
+            Assert.AreEqual(Warehouse.Count(), 3);
         }
     }
 }
