@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RF;
+using RFLibrary;
 
 namespace RF {
     public static class Warehouse {
@@ -11,6 +12,11 @@ namespace RF {
 
         public static void Add(Antenna antenna) {
             Hardware.Add((object)antenna);
+            if (ValidateAll()) {
+                Console.WriteLine("Added successfully.");
+            } else {
+                Console.WriteLine("Error: the new product can not be put in the warehouse.");
+            }
         }
 
         public static bool RemoveLast() {
@@ -38,8 +44,15 @@ namespace RF {
         public static bool UpdateLast() {
             if (Hardware.Any()) {
                 Antenna antenna = (Antenna)Hardware.Last();
+                var copy = Antenna.Copy(antenna);                
+                                              
                 UpdateProduct((Antenna) antenna);
-                return true;
+                if (ValidateAll()) {
+                    return true;
+                } else {
+                    Hardware.Add(copy);
+                    return false;
+                }
             } else {
                 Console.WriteLine("Warning: No products to be updated.");                
                 return false;
@@ -62,11 +75,16 @@ namespace RF {
         }
 
         public static bool ValidateAll() {
-            List<string> products = new List<string>();
-            foreach (Antenna antenna in Hardware) {
-                products.Add(antenna.ProductID);
-            };
-            return (products.Distinct().ToList().Count() == products.Count());
+            bool flag = false;
+            Antenna updatedProduct = (Antenna) Hardware.Last();
+            Hardware.Remove(Hardware.Last());
+            foreach (Antenna product in Hardware) {
+                flag = flag | ((product.InstallationID == updatedProduct.InstallationID) && (product.ProductID == updatedProduct.ProductID));
+            }
+            if (!flag) {
+                Hardware.Add(updatedProduct);
+            }
+            return !flag;
         }
     }
 }

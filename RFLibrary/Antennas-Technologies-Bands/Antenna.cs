@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RF {
+    [Serializable()]
     public class Antenna {
         public enum installationTypes {
             Mobile,
@@ -36,6 +39,15 @@ namespace RF {
                 Action = (int)actions.Remove;
             } else {
                 Action = (int)actions.Maintain;
+            }
+        }
+
+        public static Antenna Copy<Antenna>(Antenna other) {
+            using (MemoryStream ms = new MemoryStream()) {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(ms, other);
+                ms.Position = 0;
+                return (Antenna) formatter.Deserialize(ms);
             }
         }
 
