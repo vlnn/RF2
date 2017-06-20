@@ -39,20 +39,12 @@ namespace RF {
             if (Hardware.Any()) {
                 Antenna antenna = (Antenna)Hardware.Last();
                 UpdateProduct((Antenna) antenna);
-            } else {
-                Console.WriteLine("Warning: No products to be updated.");
-                Console.ReadKey();
-                return false;
-            }
-            if (ValidateAll()) {
                 return true;
             } else {
-                RemoveLast();
-                Console.WriteLine("Data is not unique, last record can not be saved and has been removed.");
-                Console.ReadKey();
+                Console.WriteLine("Warning: No products to be updated.");                
                 return false;
             }
-        }
+       }
 
         private static void UpdateProduct(Antenna antenna) {
             Console.WriteLine("Update Installation ID (Empty string to leave as is):");

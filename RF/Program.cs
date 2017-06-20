@@ -11,10 +11,10 @@ namespace RF {
     class Program {        
         static void Main() {
             string output = "\0";
-            char keyPressed = '\0';
-            Console.WriteLine("The RF base business layer started.");            
+            char keyPressed = '\0';            
             do {
                 Console.Clear();
+                Console.WriteLine("The RF base business layer started.");
                 if (output != "\0") {
                     Console.WriteLine("Status: " + output);
                 } else {

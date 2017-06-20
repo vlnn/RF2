@@ -16,7 +16,7 @@ namespace RF.Test {
         [TestMethod]
         public void GenerateNumCodeTest() {
             var test = new Filler();
-            Assert.AreEqual(test.GenerateNumCode().Length,3);            
+            Assert.AreEqual(test.GenerateNumCode().Length,Filler.codelen);            
         }
     }
 }
