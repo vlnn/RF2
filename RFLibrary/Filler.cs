@@ -9,24 +9,30 @@ using RFLibrary;
 namespace RFLibrary {
 
     public class Filler {
-        const int codelen = 3;
+        
+        public const int codelen = 3;
+        public Random random = new Random();
+    
         public Warehouse WarezFiller() {
-
-            var cities = Enum.GetValues(typeof(Department.Cities));
-            var random = new Random();
+            Array cities = Enum.GetValues(typeof(Department.Cities));
             string city = cities.GetValue(random.Next(cities.Length)).ToString();
-            string citycode = city.Substring(0, codelen);
-            random = new Random();
-            const string chars = "0123456789";
-            string numcode = new string(Enumerable.Repeat(chars, codelen).Select(s => s[random.Next(s.Length)]).ToArray());
-
+            string citycode = GenerateCityCode(city);
+            string numcode = GenerateNumCode();
             var antenna = new Antenna();
-            antenna.ProductID = citycode + numcode;
-            antenna.InstallationID = city; 
+            antenna.ProductID = (citycode + numcode).ToUpper();
+            antenna.InstallationID = city;
+            var warez = new Warehouse();            
+            warez.Add(antenna);
+            return warez;
+        }
 
-            var Warez = new Warehouse();
-            Warez.Add(antenna);
-            return Warez;
+        private string GenerateCityCode(string city) {
+            return (city.Substring(0, codelen));
+        }
+
+        public string GenerateNumCode() {
+            const string chars = "0123456789";
+            return (new string(Enumerable.Repeat(chars, codelen).Select(s => s[random.Next(s.Length)]).ToArray()));
         }
     }
 }

@@ -7,11 +7,11 @@ using RFLibrary;
 using RF;
 
 namespace RF.GUI {
-    class DrawMenu {
+    class Menu {
         private const string menuKeys = "CRUD";
         private char keyPressed = '\0';
-        public DrawMenu() {
-            Console.WriteLine("Do you want to:\n C) Create the product\n R) Read the product\n U) Update the product\n D) Delete the product?\n");
+        public Menu() {
+            Console.WriteLine("\nDo you want to:\n C) Create the product\n R) Read/Validate the products\n U) Update the product\n D) Delete the product?\n");
         }
         public char Select() {
             do {
@@ -24,16 +24,23 @@ namespace RF.GUI {
                 case 'C': {
                         var product = new Filler();
                         product.WarezFiller();
-                        return "The new product added to the Warehouse.";
+                        return "The new product added to the warehouse.";
                     }
                 case 'R': {
-                        return "Read";
+                        var warez = new Warehouse();
+                        if (warez.ValidateAll()) {
+                            return ( warez.Count() + " packages were checked.");
+                        } else {
+                            return ("Error! Warehouse is not in order!");
+                        }                        
                     }
                 case 'U': {
                         return "Update";
                     }
                 case 'D': {
-                        return "Delete";
+                        var warez = new Warehouse();
+                        warez.RemoveLast();
+                        return "One package has been removed from the warehouse.";
                     }
                 default: {
                         return "Should not be returned";

@@ -16,12 +16,18 @@ namespace RF {
             var Warez = filler.WarezFiller();            
             do {
                 Console.Clear();
-                Console.WriteLine("There are " + Warez.Count() + " antennas in the storage.");
-                Console.WriteLine(output);
-                var drawMenu = new DrawMenu();                                                
+                if (output != "\0") {
+                    Console.WriteLine("Ready: " + output);
+                } else {
+                    Console.WriteLine(output);
+                }
+                var drawMenu = new Menu();
+                Console.WriteLine("State: There are " + Warez.Count() + " antennas in the storage.\n");
+                Console.WriteLine(Warez.ReadAll());
                 var keyPressed = drawMenu.Select();
-                output = drawMenu.Action(keyPressed);
-            } while (true);            
+                output = drawMenu.Action(keyPressed);                
+            } while (true);
+            Console.WriteLine("The RF base business layer stopped.");
         }
     }
 }
