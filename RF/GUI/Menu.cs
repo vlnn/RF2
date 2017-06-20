@@ -15,8 +15,8 @@ namespace RF.GUI {
         }
         public char Select() {
             do {
-                keyPressed = Char.ToUpper(Console.ReadKey(true).KeyChar);                
-            } while (! menuKeys.Contains(keyPressed));                        
+                keyPressed = Char.ToUpper(Console.ReadKey(true).KeyChar);
+            } while (!menuKeys.Contains(keyPressed));
             return keyPressed;
         }
         public string Action(char menu) {
@@ -29,23 +29,31 @@ namespace RF.GUI {
                 case 'R': {
                         var warez = new Warehouse();
                         if (warez.ValidateAll()) {
-                            return ( warez.Count() + " packages were checked.");
+                            return (warez.Count() + " packages were checked.");
                         } else {
                             return ("Error! Warehouse is not in order!");
-                        }                        
+                        }
                     }
                 case 'U': {
-                        return "Update";
+                        var warez = new Warehouse();
+                        if (warez.UpdateLast()) {
+                            return "Update successfull.";
+                        } else {
+                            return "Update unsuccessfull.";
+                        };
                     }
                 case 'D': {
                         var warez = new Warehouse();
-                        warez.RemoveLast();
-                        return "One package has been removed from the warehouse.";
+                        if (warez.RemoveLast()) {
+                            return "One package has been removed from the warehouse.";
+                        } else {
+                            return "Deletion is not complete.";
+                        }
                     }
                 default: {
                         return "Should not be returned";
                     }
-            }                        
+            }
         }
     }
 }

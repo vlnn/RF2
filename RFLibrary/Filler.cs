@@ -26,7 +26,7 @@ namespace RFLibrary {
             return warez;
         }
 
-        private string GenerateCityCode(string city) {
+        public string GenerateCityCode(string city) {
             return (city.Substring(0, codelen));
         }
 

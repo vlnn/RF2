@@ -60,6 +60,8 @@
     <Compile Include="ReceiveOnlyTest.cs" />
     <Compile Include="FrequencyTest.cs" />
     <Compile Include="LicensedTest.cs" />
+    <Compile Include="FillerTest.cs" />
+    <Compile Include="WarehouseTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RFLibrary\RFLibrary.csproj">
