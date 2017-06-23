@@ -7,18 +7,21 @@ using RFLibrary;
 using RF;
 
 namespace RF.GUI {
-    public class Menu<T> :ISearch where T : IProducts, new() {
+    public class Menu<T>:ISearch where T : IProducts, new() {
         private const string menuKeys = "CRUDS";
         private char keyPressed = '\0';
+
         public Menu() {
             Console.WriteLine("\nDo you want to:\n C) Create the product\n R) Read/Validate the products\n U) Update the product\n D) Delete the product\n S) Search by city?\n");
         }
+
         public char Select() {
             do {
                 keyPressed = Char.ToUpper(Console.ReadKey(true).KeyChar);
             } while (!menuKeys.Contains(keyPressed));
             return keyPressed;
         }
+
         public string Action(char menu) {
             switch (menu) {
                 case 'C': {
@@ -31,9 +34,9 @@ namespace RF.GUI {
                             return (Warehouse<T>.Count() + " packages were checked.");
                         } else {
                             return ("Error! Warehouse is not in order!");
-                        };                        
+                        };
                     }
-                case 'U': {                        
+                case 'U': {
                         if (Warehouse<T>.UpdateLast()) {
                             return "Update successfull.";
                         } else {
@@ -78,6 +81,6 @@ namespace RF.GUI {
             Console.ReadKey();
         }
 
-        
+
     }
 }
