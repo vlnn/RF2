@@ -7,7 +7,7 @@ using RF;
 using RFLibrary;
 
 namespace RF {
-    public static class Warehouse<T> where T : IProducts {
+    public class Warehouse<T> where T : IProducts {
         public static List<T> Hardware = new List<T>();        
 
         public static void Add(T antenna) {
@@ -55,7 +55,7 @@ namespace RF {
                 }
             } else {
                 Console.WriteLine("Warning: No products to be updated.");                
-                return false;
+                return false;                
             }
        }
 
@@ -67,7 +67,6 @@ namespace RF {
                 antenna.InstallationID = line;
             };
             Console.WriteLine("Update Product ID (Empty string to leave as is):");
-
             line = Console.ReadLine();
             if (line != String.Empty) {
                 antenna.ProductID = line;
@@ -77,7 +76,7 @@ namespace RF {
         public static bool ValidateAll() {
             bool flag = false;
             T updatedProduct = (T) Hardware.Last();
-            Hardware.Remove(Hardware.Last());
+            Hardware.Remove(Hardware.Last());            
             foreach (T product in Hardware) {
                 flag = flag | ((product.InstallationID == updatedProduct.InstallationID) && (product.ProductID == updatedProduct.ProductID));
             }
@@ -86,5 +85,8 @@ namespace RF {
             }
             return !flag;
         }
+
+ 
+
     }
 }

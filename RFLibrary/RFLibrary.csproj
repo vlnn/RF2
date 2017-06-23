@@ -43,7 +43,7 @@
     <Compile Include="Antennas-Technologies-Bands\Antenna.cs" />
     <Compile Include="Antennas-Technologies-Bands\Frequency.cs" />
     <Compile Include="Antennas-Technologies-Bands\Licensed.cs" />
-    <Compile Include="Antennas-Technologies-Bands\Products.cs" />
+    <Compile Include="Antennas-Technologies-Bands\IProducts.cs" />
     <Compile Include="Antennas-Technologies-Bands\ReceiveOnly.cs" />
     <Compile Include="Antennas-Technologies-Bands\ReceiveTransmit.cs" />
     <Compile Include="Antennas-Technologies-Bands\Unlicensed.cs" />
@@ -51,6 +51,7 @@
     <Compile Include="Areas-Departments-Numbers\Department.cs" />
     <Compile Include="Areas-Departments-Numbers\Region.cs" />
     <Compile Include="Filler.cs" />
+    <Compile Include="ISearch.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Partner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

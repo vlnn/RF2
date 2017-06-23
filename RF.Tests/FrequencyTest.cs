@@ -7,7 +7,7 @@ namespace RFTest {
     public class FrequencyTest {
         [TestMethod]
         protected void Frequency() {
-            var antenna = new  Frequency(13);
+            var antenna = new Frequency();
             Assert.AreEqual(antenna.ReceiverID, "DefaultReceiver");
             Assert.AreEqual(antenna.TransmitterID, null);
             Assert.AreEqual(antenna.Band, "High");
