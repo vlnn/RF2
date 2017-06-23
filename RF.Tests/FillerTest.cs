@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RF;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RFLibrary;
 
 namespace RF.Test {
