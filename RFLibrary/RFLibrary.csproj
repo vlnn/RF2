@@ -43,6 +43,7 @@
     <Compile Include="Antennas-Technologies-Bands\Antenna.cs" />
     <Compile Include="Antennas-Technologies-Bands\Frequency.cs" />
     <Compile Include="Antennas-Technologies-Bands\Licensed.cs" />
+    <Compile Include="Antennas-Technologies-Bands\Products.cs" />
     <Compile Include="Antennas-Technologies-Bands\ReceiveOnly.cs" />
     <Compile Include="Antennas-Technologies-Bands\ReceiveTransmit.cs" />
     <Compile Include="Antennas-Technologies-Bands\Unlicensed.cs" />

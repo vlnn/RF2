@@ -7,14 +7,14 @@ namespace RF.Test {
 
         [TestMethod]
         public void GenerateCityCodeTest() {
-            var test = new Filler();
+            var test = new Filler<Antenna>();
             Assert.AreEqual(test.GenerateCityCode("EyJafjallajökull"),"EyJ");
         }
 
         [TestMethod]
         public void GenerateNumCodeTest() {
-            var test = new Filler();
-            Assert.AreEqual(test.GenerateNumCode().Length,Filler.codelen);            
+            var test = new Filler<Antenna>();
+            Assert.AreEqual(test.GenerateNumCode().Length,Filler<Antenna>.codelen);            
         }
     }
 }

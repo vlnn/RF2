@@ -20,7 +20,7 @@ namespace RF {
     }
 
     [Serializable()]
-    public class Antenna {
+    public class Antenna : IProducts {
 
         public string ProductID { get; set; }
         public string InstallationID { get; set; }

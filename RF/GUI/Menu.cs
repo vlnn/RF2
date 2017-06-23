@@ -7,7 +7,7 @@ using RFLibrary;
 using RF;
 
 namespace RF.GUI {
-    class Menu {
+    public class Menu<T> where T : IProducts, new() {
         private const string menuKeys = "CRUD";
         private char keyPressed = '\0';
         public Menu() {
@@ -19,29 +19,29 @@ namespace RF.GUI {
             } while (!menuKeys.Contains(keyPressed));
             return keyPressed;
         }
-        public string Action(char menu) {
+        public string Action (char menu) {
             switch (menu) {
                 case 'C': {
-                        var product = new Filler();
+                        var product = new Filler<T>();
                         product.WarezFiller();
                         return "The new product added to the warehouse.";
                     }
                 case 'R': {                        
-                        if (Warehouse.ValidateAll()) {
-                            return (Warehouse.Count() + " packages were checked.");
+                        if (Warehouse<T>.ValidateAll()) {
+                            return (Warehouse<T>.Count() + " packages were checked.");
                         } else {
                             return ("Error! Warehouse is not in order!");
                         }
                     }
                 case 'U': {                        
-                        if (Warehouse.UpdateLast()) {
+                        if (Warehouse<T>.UpdateLast()) {
                             return "Update successfull.";
                         } else {
                             return "Update unsuccessfull.";
                         };
                     }
                 case 'D': {                        
-                        if (Warehouse.RemoveLast()) {
+                        if (Warehouse<T>.RemoveLast()) {
                             return "One package has been removed from the warehouse.";
                         } else {
                             return "Deletion is not complete.";

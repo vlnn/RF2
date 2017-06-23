@@ -8,7 +8,7 @@ using RF;
 using RF.GUI;
 
 namespace RF {
-    class Program {        
+    class Program{        
         static void Main() {
             string output = "\0";
             char keyPressed = '\0';            
@@ -20,10 +20,11 @@ namespace RF {
                 } else {
                     Console.WriteLine(output);
                 }
-                var drawMenu = new Menu();
-                Console.WriteLine("Information: There are " + Warehouse.Count() + " antennas in the storage.\n");
-                Console.WriteLine(Warehouse.ReadAll());
-                keyPressed = drawMenu.Select();
+                var drawMenu = new Menu<Frequency>();
+                Console.WriteLine("Information: There are " + Warehouse<Frequency>.Count() + " antennas in the storage.\n");
+                Console.WriteLine(Warehouse<Frequency>.ReadAll());
+                keyPressed = drawMenu.Select();                
+
                 output = drawMenu.Action(keyPressed);
             } while (true);            
         }

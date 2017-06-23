@@ -8,7 +8,7 @@ using RFLibrary;
 
 namespace RFLibrary {
 
-    public class Filler {
+    public class Filler<T> where T : IProducts, new() {
         
         public const int codelen = 3;
         private Random random = new Random(Guid.NewGuid().GetHashCode());
@@ -18,10 +18,10 @@ namespace RFLibrary {
             string city = cities.GetValue(random.Next(cities.Length)).ToString();
             string citycode = GenerateCityCode(city);
             string numcode = GenerateNumCode();
-            var antenna = new Frequency(33);
+            var antenna = new T();
             antenna.ProductID = (citycode + numcode).ToUpper();
             antenna.InstallationID = city;            
-            Warehouse.Add(antenna);            
+            Warehouse<T>.Add(antenna);            
         }
 
         public string GenerateCityCode(string city) {

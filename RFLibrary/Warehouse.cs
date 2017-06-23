@@ -7,10 +7,10 @@ using RF;
 using RFLibrary;
 
 namespace RF {
-    public static class Warehouse {
-        public static List<Antenna> Hardware = new List<Antenna>();        
+    public static class Warehouse<T> where T : IProducts {
+        public static List<T> Hardware = new List<T>();        
 
-        public static void Add(Antenna antenna) {
+        public static void Add(T antenna) {
             Hardware.Add(antenna);
             if (ValidateAll()) {
                 Console.WriteLine("Added successfully.");
@@ -35,7 +35,7 @@ namespace RF {
 
         public static string ReadAll() {
             string ids = "";
-            foreach (Antenna antenna in Hardware) {
+            foreach (T antenna in Hardware) {
                 ids += (antenna.InstallationID + " : " + antenna.ProductID + "\n");
             }
             return ids;
@@ -43,10 +43,10 @@ namespace RF {
 
         public static bool UpdateLast() {
             if (Hardware.Any()) {
-                Antenna antenna = Hardware.Last();
-                var copy = Antenna.Copy(antenna);                
+                T antenna = Hardware.Last();
+                var copy = antenna;                
                                               
-                UpdateProduct((Antenna) antenna);
+                UpdateProduct((T) antenna);
                 if (ValidateAll()) {
                     return true;
                 } else {
@@ -59,7 +59,7 @@ namespace RF {
             }
        }
 
-        private static void UpdateProduct(Antenna antenna) {
+        private static void UpdateProduct(T antenna) {
             Console.WriteLine("Update Installation ID (Empty string to leave as is):");
             string line = Console.ReadLine();
 
@@ -76,9 +76,9 @@ namespace RF {
 
         public static bool ValidateAll() {
             bool flag = false;
-            Antenna updatedProduct = (Antenna) Hardware.Last();
+            T updatedProduct = (T) Hardware.Last();
             Hardware.Remove(Hardware.Last());
-            foreach (Antenna product in Hardware) {
+            foreach (T product in Hardware) {
                 flag = flag | ((product.InstallationID == updatedProduct.InstallationID) && (product.ProductID == updatedProduct.ProductID));
             }
             if (!flag) {

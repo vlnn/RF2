@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RF {
-    public class Frequency:ReceiveOnly {
-        public string Band { get; set; }
+    public interface IProducts{
+        string ProductID { get; set; }
+        string InstallationID { get; set; }
     }
 }
