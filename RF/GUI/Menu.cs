@@ -60,7 +60,6 @@ namespace RF.GUI {
             }
         }
 
-
         public List<string> Search(string city) {
             var result = new List<string>();
             foreach (T product in Warehouse<T>.Hardware) {
@@ -75,10 +74,13 @@ namespace RF.GUI {
             Console.WriteLine("Please enter the city name:");
             string city = Console.ReadLine();
             var productIDs = Search(city);
-            foreach (var product in productIDs) {
-                Console.WriteLine(product);
+            if (productIDs.Count != 0) {
+                foreach (var product in productIDs) {
+                    Console.WriteLine(product);
+                }
+                Console.ReadKey();
             }
-            Console.ReadKey();
+            
         }
 
 
