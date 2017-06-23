@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using RF;
 
 namespace RF {
-    public class AreaOfRegion : Region {
-        enum Areas {
-            North,
-            East,
-            South,
-            West
-        }        
+    enum Areas {
+        North,
+        East,
+        South,
+        West
+    }
+
+    public class AreaOfRegion : Region {    
 
         public override string Area() {
             return Areas.North.ToString();

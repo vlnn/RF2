@@ -14,7 +14,7 @@ namespace RFLibrary {
         public Random random = new Random();
     
         public void WarezFiller() {
-            Array cities = Enum.GetValues(typeof(Department.Cities));
+            Array cities = Enum.GetValues(typeof(Cities));
             string city = cities.GetValue(random.Next(cities.Length)).ToString();
             string citycode = GenerateCityCode(city);
             string numcode = GenerateNumCode();

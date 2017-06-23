@@ -7,19 +7,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RF {
+    public enum installationTypes {
+        Mobile,
+        Fixed,
+    }
+
+    public enum actions {
+        None,
+        Install,
+        Remove,
+        Maintain,
+    }
+
     [Serializable()]
     public class Antenna {
-        public enum installationTypes {
-            Mobile,
-            Fixed,
-        }
-
-        public enum actions {
-            None,
-            Install,
-            Remove,
-            Maintain,
-        }
 
         public string ProductID { get; set; }
         public string InstallationID { get; set; }

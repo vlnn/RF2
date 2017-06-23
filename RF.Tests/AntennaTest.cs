@@ -24,13 +24,13 @@ namespace RFTest {
         [TestMethod]
         public void InstallationType() {            
             Antenna antenna = new Antenna();            
-            antenna.InstallationType = (int)Antenna.installationTypes.Fixed;            
-            int expectedInstallationType = (int)Antenna.installationTypes.Fixed;           
-            int actualInstallationType = antenna.InstallationType;           
+            antenna.InstallationType = (int)installationTypes.Fixed;            
+            int expectedInstallationType = (int)installationTypes.Fixed;           
+            int actualInstallationType = (int)antenna.InstallationType;           
             Assert.AreEqual(expectedInstallationType, actualInstallationType);   
                      
-            antenna.InstallationType = (int)Antenna.installationTypes.Mobile;
-            expectedInstallationType = (int)Antenna.installationTypes.Mobile;
+            antenna.InstallationType = (int)installationTypes.Mobile;
+            expectedInstallationType = (int)installationTypes.Mobile;
             actualInstallationType = antenna.InstallationType;
             Assert.AreEqual(expectedInstallationType, actualInstallationType);
         }
@@ -38,7 +38,7 @@ namespace RFTest {
         public void Install() {
             Antenna antenna = new Antenna();
             antenna.Install();
-            int expectedAction = (int)Antenna.actions.Install;
+            int expectedAction = (int)actions.Install;
             int actualAction = (int)antenna.Action;
             Assert.AreEqual(expectedAction, actualAction);
         }
@@ -46,7 +46,7 @@ namespace RFTest {
         public void Remove() {
             Antenna antenna = new Antenna();
             antenna.Remove();
-            int expectedAction = (int)Antenna.actions.Remove;
+            int expectedAction = (int)actions.Remove;
             int actualAction = (int)antenna.Action;
             Assert.AreEqual(expectedAction, actualAction);
         }
@@ -54,7 +54,7 @@ namespace RFTest {
         public void Maintain() {
             Antenna antenna = new Antenna();
             antenna.Maintain();
-            int expectedAction = (int)Antenna.actions.Maintain;
+            int expectedAction = (int)actions.Maintain;
             int actualAction = (int)antenna.Action;
             Assert.AreEqual(expectedAction, actualAction);
         }
