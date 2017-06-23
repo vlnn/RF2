@@ -8,10 +8,10 @@ using RFLibrary;
 
 namespace RF {
     public static class Warehouse {
-        public static List<object> Hardware = new List<object>();        
+        public static List<Antenna> Hardware = new List<Antenna>();        
 
         public static void Add(Antenna antenna) {
-            Hardware.Add((object)antenna);
+            Hardware.Add(antenna);
             if (ValidateAll()) {
                 Console.WriteLine("Added successfully.");
             } else {
@@ -43,7 +43,7 @@ namespace RF {
 
         public static bool UpdateLast() {
             if (Hardware.Any()) {
-                Antenna antenna = (Antenna)Hardware.Last();
+                Antenna antenna = Hardware.Last();
                 var copy = Antenna.Copy(antenna);                
                                               
                 UpdateProduct((Antenna) antenna);
