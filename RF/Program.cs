@@ -15,17 +15,24 @@ namespace RF {
             do {
                 Console.Clear();
                 Console.WriteLine("The RF base business layer started.");
+
                 if (output != "\0") {
                     Console.WriteLine("Status: " + output);
                 } else {
                     Console.WriteLine(output);
                 }
-                var drawMenu = new Menu<Frequency>();
-                Console.WriteLine("Information: There are " + Warehouse<Frequency>.Count() + " antennas in the storage.\n");
-                Console.WriteLine(Warehouse<Frequency>.ReadAll());
-                keyPressed = drawMenu.Select();                
 
+                var drawMenu = new Menu<Frequency>();
+                Console.WriteLine("Information: There are " + Warehouse<Frequency>.Count() + " Freqs in the storage.\n");
+                Console.WriteLine(Warehouse<Frequency>.ReadAll());
+                keyPressed = drawMenu.Select();
                 output = drawMenu.Action(keyPressed);
+
+                // var drawMenu2 = new Menu<Antenna>();
+                // Console.WriteLine("Information: There are " + Warehouse<Antenna>.Count() + " antennas in the storage.\n");
+                // Console.WriteLine(Warehouse<Antenna>.ReadAll());
+                // keyPressed = drawMenu2.Select();                               
+                // output = drawMenu2.Action(keyPressed);
             } while (true);            
         }
     }

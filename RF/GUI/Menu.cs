@@ -48,10 +48,11 @@ namespace RF.GUI {
                         return "OK";
                     }
                 case 'D': {
-                        if (Warehouse<T>.RemoveLast()) {
+                        if (Warehouse<T>.Count() != 0) {
+                            var waste = Warehouse<T>.Pull();
                             return "One package has been removed from the warehouse.";
                         } else {
-                            return "Deletion is not complete.";
+                            return "Deletion is not possible, warehouse is already empty.";
                         }
                     }
                 default: {

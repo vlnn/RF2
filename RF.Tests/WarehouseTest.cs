@@ -29,9 +29,9 @@ namespace RFTest {
         public void RemoveLast() {
             repeat = Warehouse<Antenna>.Count();
             for (int i = 1; i < repeat; i++) {
-                Assert.IsTrue(Warehouse<Antenna>.RemoveLast());
+                Assert.IsTrue(Warehouse<Antenna>.Pull().Equals(null));
             }
-            Assert.IsFalse(Warehouse<Antenna>.RemoveLast());                       
+            Assert.IsFalse(Warehouse<Antenna>.Pull().Equals(null));                       
         }
 
         [TestMethod]

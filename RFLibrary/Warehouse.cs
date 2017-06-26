@@ -8,10 +8,10 @@ using RFLibrary;
 
 namespace RF {
     public class Warehouse<T> where T : IProducts {
-        public static List<T> Hardware = new List<T>();        
+        public static Queue<T> Hardware = new Queue<T>();        
 
-        public static void Add(T antenna) {
-            Hardware.Add(antenna);
+        public static void Push(T antenna) {            
+            Hardware.Enqueue(antenna);
             if (ValidateAll()) {
                 Console.WriteLine("Added successfully.");
             } else {
@@ -19,14 +19,13 @@ namespace RF {
             }
         }
 
-        public static bool RemoveLast() {
+        public static T Pull() {
             if (Hardware.Any()) {
-                Hardware.Remove(Hardware.Last());
+                return Hardware.Dequeue();
             } else {
-                Console.WriteLine("The storage is already empty.");
-                Console.ReadKey();
-            }
-            return (Hardware.Any());
+                Console.WriteLine("The storage is already empty.");                
+                return default(T);
+            }            
         }
 
         public static int Count() {
@@ -34,7 +33,7 @@ namespace RF {
         }
 
         public static string ReadAll() {
-            string ids = "";
+            string ids = string.Empty;
             foreach (T antenna in Hardware) {
                 ids += (antenna.InstallationID + " : " + antenna.ProductID + "\n");
             }
@@ -43,14 +42,12 @@ namespace RF {
 
         public static bool UpdateLast() {
             if (Hardware.Any()) {
-                T antenna = Hardware.Last();
-                var copy = antenna;                
-                                              
-                UpdateProduct((T) antenna);
+                var copy = Pull();                                                            
+                UpdateProduct(copy);
                 if (ValidateAll()) {
+                    Push(copy);
                     return true;
                 } else {
-                    Hardware.Add(copy);
                     return false;
                 }
             } else {
@@ -74,19 +71,7 @@ namespace RF {
         }
 
         public static bool ValidateAll() {
-            bool flag = false;
-            T updatedProduct = (T) Hardware.Last();
-            Hardware.Remove(Hardware.Last());            
-            foreach (T product in Hardware) {
-                flag = flag | ((product.InstallationID == updatedProduct.InstallationID) && (product.ProductID == updatedProduct.ProductID));
-            }
-            if (!flag) {
-                Hardware.Add(updatedProduct);
-            }
-            return !flag;
+            return Hardware.Distinct().Count() == Hardware.Count();
         }
-
- 
-
     }
 }

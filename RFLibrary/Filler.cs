@@ -21,7 +21,7 @@ namespace RFLibrary {
             var antenna = new T();
             antenna.ProductID = (citycode + numcode).ToUpper();
             antenna.InstallationID = city;            
-            Warehouse<T>.Add(antenna);            
+            Warehouse<T>.Push(antenna);            
         }
 
         public string GenerateCityCode(string city) {
