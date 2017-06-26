@@ -11,27 +11,32 @@ namespace RF {
 
     public class Program {
         public static void Main() {
+        string output = string.Empty;
+        char keyPressed = '\0';
             LogUsersIn();
-            string output = "\0";
-
-            char keyPressed = '\0';
+            Console.WriteLine("The RF base business layer started.");
             do {
                 Console.Clear();
-                Console.WriteLine("The RF base business layer started.");
-
-                if (output != "\0") {
-                    Console.WriteLine("Status: " + output);
-                } else {
-                    Console.WriteLine(output);
-                }
-
+                OutputStatus(output);
                 var drawMenu = new Menu<Frequency>();
-                Console.WriteLine("Information: There are " + Warehouse<Frequency>.Count() + " Freqs in the storage.\n");
-                Console.WriteLine(Warehouse<Frequency>.ReadAll());
-                keyPressed = drawMenu.Select();
+                OutputMenu(output);
+                keyPressed = drawMenu.Select();                
                 output = drawMenu.Action(keyPressed);
-
             } while (true);
+        }
+
+        private static void OutputMenu(string output) {
+            Users.UserLog.Add(DateTime.Now + ": user " + Users.username + output);
+            Console.WriteLine("Information: There are " + Warehouse<Frequency>.Count() + " Freqs in the storage.\n");
+            Console.WriteLine(Warehouse<Frequency>.ReadAll());            
+        }
+
+        private static void OutputStatus(string output) {            
+            if (output != "\0") {
+                Console.WriteLine("Status: " + output);
+            } else {
+                Console.WriteLine(output);
+            }
         }
 
         static void LogUsersIn() {
@@ -43,9 +48,7 @@ namespace RF {
                 Console.Write("Password: ");
                 pas = Password.ReadPwd();
                 Console.WriteLine();
-            } while (
-                Users.Login(log, pas)
-                );
+            } while (Users.Login(log, pas));        
         }
     }
 }

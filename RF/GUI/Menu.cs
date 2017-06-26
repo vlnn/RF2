@@ -45,7 +45,7 @@ namespace RF.GUI {
                     }
                 case 'S': {
                         CitySearch();
-                        return "OK";
+                        return "Search by city: OK";
                     }
                 case 'D': {
                         if (Warehouse<T>.Count() != 0) {
