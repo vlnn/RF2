@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RF {
     class Partner {
-        private static int currentid { get; set; }
+        public static int currentid { get; set; }
         private int partnerID { get; set; }
         private string name { get; set; }
         private string address { get; set; }

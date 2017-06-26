@@ -8,10 +8,13 @@ using RF;
 using RF.GUI;
 
 namespace RF {
-    class Program{        
-        static void Main() {
+
+    public class Program {
+        public static void Main() {
+            LogUsersIn();
             string output = "\0";
-            char keyPressed = '\0';            
+
+            char keyPressed = '\0';
             do {
                 Console.Clear();
                 Console.WriteLine("The RF base business layer started.");
@@ -28,12 +31,21 @@ namespace RF {
                 keyPressed = drawMenu.Select();
                 output = drawMenu.Action(keyPressed);
 
-                // var drawMenu2 = new Menu<Antenna>();
-                // Console.WriteLine("Information: There are " + Warehouse<Antenna>.Count() + " antennas in the storage.\n");
-                // Console.WriteLine(Warehouse<Antenna>.ReadAll());
-                // keyPressed = drawMenu2.Select();                               
-                // output = drawMenu2.Action(keyPressed);
-            } while (true);            
+            } while (true);
+        }
+
+        static void LogUsersIn() {
+            string log = null;
+            string pas = null;
+            do {
+                Console.Write("Login: ");
+                log = Console.ReadLine();
+                Console.Write("Password: ");
+                pas = Password.ReadPwd();
+                Console.WriteLine();
+            } while (
+                Users.Login(log, pas)
+                );
         }
     }
 }
