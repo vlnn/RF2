@@ -20,8 +20,13 @@ namespace RFLibrary {
             string numcode = GenerateNumCode();
             var antenna = new T();
             antenna.ProductID = (citycode + numcode).ToUpper();
-            antenna.InstallationID = city;            
-            Warehouse<T>.Push(antenna);            
+            antenna.InstallationID = city;
+            try {
+                Warehouse<T>.Push(antenna);
+            } catch (OutOfMemoryException e) {
+                Console.WriteLine("Error: " + e.Message);
+                Console.ReadKey();
+            }        
         }
 
         public string GenerateCityCode(string city) {

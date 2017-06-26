@@ -11,11 +11,14 @@ namespace RF {
         public static Queue<T> Hardware = new Queue<T>();        
 
         public static void Push(T antenna) {            
+            if (Hardware.Count()>=10) {
+                throw new OutOfMemoryException("Hardware queue too long");
+            }
             Hardware.Enqueue(antenna);
             if (ValidateAll()) {
                 Console.WriteLine("Added successfully.");
             } else {
-                Console.WriteLine("Error: the new product can not be put in the warehouse.");
+                Console.WriteLine("Error: the new product can not be put in the warehouse.");                
             }
         }
 

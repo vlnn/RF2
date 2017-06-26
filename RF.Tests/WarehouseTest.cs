@@ -7,7 +7,7 @@ namespace RFTest {
     [TestClass]
     public class WarehouseTest {
         Filler<Antenna> test = new Filler<Antenna>();
-        int repeat = 999;
+        int repeat = 99;
 
         [TestMethod]
         public void ValidateAndCount() {                            
