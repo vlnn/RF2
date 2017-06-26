@@ -18,23 +18,6 @@ namespace RFTest {
         }
 
         [TestMethod]
-        public void ReadAll() {            
-            for (int i = 1; i < repeat; i++) {
-                test.WarezFiller();
-            }
-            Assert.AreEqual(repeat*2, Warehouse<Antenna>.ReadAll().Split('\n').Length);
-        }
-
-        [TestMethod]
-        public void RemoveLast() {
-            repeat = Warehouse<Antenna>.Count();
-            for (int i = 1; i < repeat; i++) {
-                Assert.IsTrue(Warehouse<Antenna>.Pull().Equals(null));
-            }
-            Assert.IsFalse(Warehouse<Antenna>.Pull().Equals(null));                       
-        }
-
-        [TestMethod]
         public void UpdateLast() {
             Assert.IsFalse(Warehouse<Antenna>.UpdateLast());
         }
