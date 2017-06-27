@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using RF;
-using RF.GUI;
-using RFLibrary;
 
-
-namespace RF.GUI {
+namespace RF {
     public static class Users {        
         public static string username { get; private set; }
         public static List<string> UserLog = new List<string>();

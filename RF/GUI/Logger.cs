@@ -1,14 +1,8 @@
 ﻿using System.IO;
 using System.Reflection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RFLibrary;
-using RF;
 
-namespace RF.GUI {
+namespace RF {
     public class Logger {
         private string path = string.Empty;
         public Logger(string logMessage) {

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RFLibrary;
-using RF;
 
-namespace RF.GUI {
+namespace RF {
     public class Menu<T>:ISearch where T : IProducts, new() {
         private const string menuKeys = "CRUDS"; // Create Read Update Delete Save -- has to be updated if menu expanded
         private char keyPressed = '\0';
@@ -47,13 +44,9 @@ namespace RF.GUI {
                         CitySearch();
                         return "Search by city: OK";
                     }
-                case 'D': {
-                        if (Warehouse<T>.Count() != 0) {
-                            var waste = Warehouse<T>.Pull();
-                            return "One package has been removed from the warehouse.";
-                        } else {
-                            return "Deletion is not possible, warehouse is already empty.";
-                        }
+                case 'D': {                        
+                        Warehouse<T>.Pull();
+                        return "One package has been successfully discarded.";                                            
                     }
                 default: {
                         return "Should not be returned";

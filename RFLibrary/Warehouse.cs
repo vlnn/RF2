@@ -1,33 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RF;
-using RFLibrary;
 
 namespace RF {
     public class Warehouse<T> where T : IProducts {
-        public static Queue<T> Hardware = new Queue<T>();        
+        public static Queue<T> Hardware = new Queue<T>();
 
-        public static void Push(T antenna) {            
-            if (Hardware.Count()>=10) {
-                throw new OutOfMemoryException("Hardware queue too long");
+        public static void Push(T antenna) {
+            if (Hardware.Count() >= 10) {
+                throw new OutOfMemoryException("Error: Hardware queue too long");
             }
             Hardware.Enqueue(antenna);
             if (ValidateAll()) {
-                Console.WriteLine("Added successfully.");
+                Console.WriteLine(antenna.ProductID + " has been added successfully to the warehouse.");
             } else {
-                Console.WriteLine("Error: the new product can not be put in the warehouse.");                
+                Console.WriteLine("Error: the new product can not be put in the warehouse.");
             }
         }
 
         public static T Pull() {
-            if (Hardware.Any()) {
+            try {
                 return Hardware.Dequeue();
-            } else {
-                Console.WriteLine("The storage is already empty.");                
-                return default(T);
+            } catch (InvalidOperationException) {                
+                return default(T); // doing nothing, just to try/catch this exception
             }            
         }
 
@@ -45,7 +40,7 @@ namespace RF {
 
         public static bool UpdateLast() {
             if (Hardware.Any()) {
-                var copy = Pull();                                                            
+                var copy = Pull();
                 UpdateProduct(copy);
                 if (ValidateAll()) {
                     Push(copy);
@@ -54,10 +49,10 @@ namespace RF {
                     return false;
                 }
             } else {
-                Console.WriteLine("Warning: No products to be updated.");                
-                return false;                
+                Console.WriteLine("Warning: No products to be updated.");
+                return false;
             }
-       }
+        }
 
         private static void UpdateProduct(T antenna) {
             Console.WriteLine("Update Installation ID (Empty string to leave as is):");
