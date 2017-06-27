@@ -1,2 +1,3 @@
-# RF2
-Task #2 -- Object-Oriented Programming Fundamentals in C# 
+RF2
+
+Lab #1, tasks 1-7.

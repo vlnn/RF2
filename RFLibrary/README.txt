@@ -8,6 +8,6 @@ so some additional data may be stored.
 
 Partners and orders classes are developed, but no real business flow is attached yet.
 
-Simple warehouse storage has been implemented which is basically a stack at the moment. 
+Simple warehouse storage has been implemented which is basically a 10-elements queue at the moment. 
 
 Most of classes have unit tests for every method in it.
