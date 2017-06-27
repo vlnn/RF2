@@ -11,13 +11,13 @@ namespace RF {
 
     public class Program {
         public static void Main() {
-        string output = string.Empty;
+        string output = string.Empty;        
         char keyPressed = '\0';
             LogUsersIn();
             Console.WriteLine("The RF base business layer started.");
             do {
                 Console.Clear();
-                OutputStatus(output);
+                OutputStatus(output);                
                 var drawMenu = new Menu<Frequency>();
                 OutputMenu(output);
                 keyPressed = drawMenu.Select();                
@@ -26,7 +26,8 @@ namespace RF {
         }
 
         private static void OutputMenu(string output) {
-            Users.UserLog.Add(DateTime.Now + ": user " + Users.username + output);
+            Users.UserLog.Add("user " + Users.username + " " + output);
+            new Logger(Users.UserLog.Last());
             Console.WriteLine("Information: There are " + Warehouse<Frequency>.Count() + " Freqs in the storage.\n");
             Console.WriteLine(Warehouse<Frequency>.ReadAll());            
         }
@@ -48,7 +49,7 @@ namespace RF {
                 Console.Write("Password: ");
                 pas = Password.ReadPwd();
                 Console.WriteLine();
-            } while (Users.Login(log, pas));        
+            } while (!Users.Login(log, pas));        
         }
     }
 }

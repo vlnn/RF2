@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RF;
 
 namespace RF.GUI {
     class Password {
         private static List<char> pwd = new List<char>();
         public static string ReadPwd() {
+            pwd.Clear();
             while (true) {
                 ConsoleKeyInfo i = Console.ReadKey(true);
                 if (i.Key == ConsoleKey.Enter) {
@@ -20,7 +22,7 @@ namespace RF.GUI {
                     Console.Write("*");
                 }
             }
-            return pwd.ToString();
+            return string.Join("", pwd.ToArray()); // RRR but list of char is not easy to convert
         }
     }
 }

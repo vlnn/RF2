@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RF;
+using RF.GUI;
+using RFLibrary;
 
-namespace RFLibrary {
+
+namespace RF.GUI {
     public static class Users {        
         public static string username { get; private set; }
         public static List<string> UserLog = new List<string>();
@@ -14,8 +15,15 @@ namespace RFLibrary {
     { "elp",  "password2" }
 };
         public static bool Login(string login, string password) {
+            string testPassword = string.Empty;
             username = login;
-            return !passwd.TryGetValue(login, out password);
+            bool loggedin = (passwd.TryGetValue(login, out testPassword))&&((testPassword.Equals(password)));
+            if (!loggedin){
+                string output = "Not authorized: tried " + login + " : " + password;
+                new Logger(output);
+                Console.WriteLine(output);
+            }
+            return loggedin;
         }
     }
 }

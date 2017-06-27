@@ -8,7 +8,7 @@ using RF;
 
 namespace RF.GUI {
     public class Menu<T>:ISearch where T : IProducts, new() {
-        private const string menuKeys = "CRUDS";
+        private const string menuKeys = "CRUDS"; // Create Read Update Delete Save -- has to be updated if menu expanded
         private char keyPressed = '\0';
 
         public Menu() {
@@ -80,10 +80,7 @@ namespace RF.GUI {
                     Console.WriteLine(product);
                 }
                 Console.ReadKey();
-            }
-            
+            }            
         }
-
-
     }
 }
