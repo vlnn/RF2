@@ -23,8 +23,14 @@ namespace RF {
             Users.UserLog.Add("user " + Users.username + " " + output);
             new Logger(Users.UserLog.Last());
             Console.WriteLine("Information: There are " + Warehouse<Frequency>.Count() + " Freqs in the storage.\n");
-            Console.WriteLine(Warehouse<Frequency>.ReadAll());            
+            try {
+                output = Warehouse<Frequency>.ReadAll();
+                Console.WriteLine(output);
+            } catch (NullReferenceException) {
+                Console.WriteLine("Nothing to output.");
+            }
         }
+                    
 
         private static void OutputStatus(string output) {            
             if (output != "\0") {

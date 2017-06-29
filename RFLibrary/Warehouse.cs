@@ -8,7 +8,7 @@ namespace RF {
 
         public static void Push(T antenna) {
             if (Hardware.Count() >= 10) {
-                throw new OutOfMemoryException("Error: Hardware queue too long");
+                throw new OutOfMemoryException("Hardware queue too long");
             }
             Hardware.Enqueue(antenna);
             if (ValidateAll()) {
